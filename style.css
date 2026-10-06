@@ -1,0 +1,173 @@
+:root {
+  color-scheme: light;
+  font-family: Georgia, "Times New Roman", serif;
+  color: #202a25;
+  background: #f4f6f2;
+  font-synthesis: none;
+  text-rendering: optimizeLegibility;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  min-height: 100vh;
+  margin: 0;
+  background-image: linear-gradient(135deg, rgba(224, 236, 222, 0.72), transparent 42%);
+}
+
+.page-shell {
+  width: min(100% - 40px, 760px);
+  margin: 0 auto;
+  padding: 76px 0 88px;
+}
+
+.page-header {
+  padding-bottom: 34px;
+  border-bottom: 1px solid #cbd4ca;
+}
+
+.eyebrow {
+  margin: 0 0 14px;
+  color: #47775d;
+  font: 700 0.74rem/1.2 "Trebuchet MS", Arial, sans-serif;
+  letter-spacing: 0.12em;
+}
+
+h1 {
+  margin: 0;
+  font-size: clamp(2.5rem, 8vw, 4.25rem);
+  font-weight: 500;
+  line-height: 1.04;
+}
+
+.intro {
+  max-width: 38rem;
+  margin: 17px 0 0;
+  color: #536159;
+  font: 1.05rem/1.6 "Trebuchet MS", Arial, sans-serif;
+}
+
+section {
+  padding-top: 32px;
+}
+
+.section-heading {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 16px;
+  padding-bottom: 12px;
+  border-bottom: 2px solid #315f46;
+}
+
+h2 {
+  margin: 0;
+  font-size: 1.35rem;
+  font-weight: 600;
+}
+
+.count,
+.status,
+.repository-meta {
+  color: #65736a;
+  font: 0.82rem/1.5 "Trebuchet MS", Arial, sans-serif;
+}
+
+.repository-list {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.repository-item {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) auto;
+  gap: 12px 24px;
+  padding: 21px 0;
+  border-bottom: 1px solid #d7ded5;
+  animation: appear 360ms ease-out both;
+}
+
+.repository-item:nth-child(2) {
+  animation-delay: 70ms;
+}
+
+.repository-item:nth-child(3) {
+  animation-delay: 140ms;
+}
+
+.repository-link {
+  width: fit-content;
+  color: #24573d;
+  font-size: 1.14rem;
+  font-weight: 700;
+  text-decoration-thickness: 1px;
+  text-underline-offset: 4px;
+  overflow-wrap: anywhere;
+}
+
+.repository-link:hover {
+  color: #a34f31;
+}
+
+.repository-description {
+  grid-column: 1 / -1;
+  margin: 0;
+  color: #46534a;
+  font: 0.96rem/1.55 "Trebuchet MS", Arial, sans-serif;
+}
+
+.repository-meta {
+  grid-column: 1 / -1;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px 18px;
+}
+
+.status {
+  margin: 16px 0 0;
+}
+
+.status:empty {
+  display: none;
+}
+
+@keyframes appear {
+  from {
+    opacity: 0;
+    transform: translateY(7px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@media (max-width: 520px) {
+  .page-shell {
+    width: min(100% - 32px, 760px);
+    padding-top: 48px;
+  }
+
+  .repository-item {
+    grid-template-columns: 1fr;
+    gap: 8px;
+  }
+
+  .repository-description,
+  .repository-meta {
+    grid-column: 1;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    scroll-behavior: auto !important;
+  }
+}
